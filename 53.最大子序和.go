@@ -13,16 +13,15 @@ func maxSubArray(nums []int) int {
 	} else if n == 1 {
 		return nums[0]
 	}
-	dp := make([]int, n, n)
-	dp[0] = nums[0]
-	res := dp[0]
+	dp := nums[0]
+	res := dp
 	for i := 1; i < n; i++ {
-		if dp[i-1] < 0 {
-			dp[i] = nums[i]
+		if dp < 0 {
+			dp = nums[i]
 		} else {
-			dp[i] = dp[i-1] + nums[i]
+			dp += nums[i]
 		}
-		res = max(dp[i], res)
+		res = max(dp, res)
 	}
 	return res
 }
