@@ -20,7 +20,8 @@
 
 // Solution 2
 func twoSum(nums []int, target int) []int {
-	hash := map[int]int{}
+	// hash := map[int]int{}
+	hash := make(map[int]int, 0)
 	for index, num := range nums {
 		p, ok := hash[target-num]
 		if ok {
